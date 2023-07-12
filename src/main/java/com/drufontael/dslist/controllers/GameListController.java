@@ -1,7 +1,6 @@
 package com.drufontael.dslist.controllers;
 
 
-import com.drufontael.dslist.dto.GameDTO;
 import com.drufontael.dslist.dto.GameListDTO;
 import com.drufontael.dslist.dto.GameMinDTO;
 import com.drufontael.dslist.services.GameListService;
@@ -19,10 +18,17 @@ import java.util.List;
 public class GameListController {
     @Autowired
     private GameListService gameListService;
+    @Autowired
+    private GameService gameService;
 
     @GetMapping
     public List<GameListDTO> findAll(){
         return gameListService.findAll();
+    }
+
+    @GetMapping(value = "/{listId}/games")
+    public List<GameMinDTO> findByList(@PathVariable Long listId){
+        return gameService.findByList(listId);
     }
 
 

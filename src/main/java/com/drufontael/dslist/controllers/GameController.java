@@ -3,7 +3,6 @@ package com.drufontael.dslist.controllers;
 
 import com.drufontael.dslist.dto.GameDTO;
 import com.drufontael.dslist.dto.GameMinDTO;
-import com.drufontael.dslist.entities.Game;
 import com.drufontael.dslist.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,4 +27,5 @@ public class GameController {
     public GameDTO findById(@PathVariable Long id){
         return gameService.findById(id);
     }
+
 }

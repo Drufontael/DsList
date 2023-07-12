@@ -1,7 +1,7 @@
 package com.drufontael.dslist.dto;
 
 import com.drufontael.dslist.entities.Game;
-import jakarta.persistence.Column;
+import com.drufontael.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -19,6 +19,13 @@ public class GameMinDTO {
         this.year = entities.getYear();
         this.imgUrl = entities.getImgUrl();
         this.shortDescription = entities.getShortDescription();
+    }
+    public GameMinDTO(GameMinProjection projection) {
+        this.id = projection.getId();
+        this.title = projection.getTitle();
+        this.year = projection.getYear();
+        this.imgUrl = projection.getImgUrl();
+        this.shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {
